@@ -2,5 +2,3 @@ requests
 beautifulsoup4
 python-dotenv
 flask
-flask_socketio
-eventlet

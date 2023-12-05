@@ -11,13 +11,10 @@ def get_landing_page():
 
 @app.route('/api/work')
 def perform_infinite_work():
-    for _ in range(10000):
+    for _ in range(1000):
         time.sleep(0.1)  # Simulate some processing time
-        #socketio.emit('status', {'data': f'Processing step {i}'}, namespace='/test')
     return "finished. JK! that is impossible"
 
 if __name__ == "__main__":
-    #socketio = SocketIO(app, async_mode='eventlet')
     # Change host to '0.0.0.0' to bind to all network interfaces
-    #socketio.run(app, debug=True, )
     app.run(host='0.0.0.0', port=5000, threaded=False)

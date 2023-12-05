@@ -1,0 +1,23 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api-label
+  template:
+    metadata:
+      labels:
+        app: api-label
+        version: v1
+    spec:
+      containers:
+      - name: api
+        image: cis527.azurecr.io/api:latest
+        ports:
+        - containerPort: 5000
+      imagePullSecrets:
+      - name: acr-secret
